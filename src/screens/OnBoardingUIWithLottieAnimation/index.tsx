@@ -4,6 +4,7 @@ import OnBoardingScreens from './mocks';
 import {WIDTH} from '@/utils/global';
 import OnBoardingItem from './components/OnBoardingItem';
 import Animated, {
+  ReduceMotion,
   useAnimatedScrollHandler,
   useDerivedValue,
   useSharedValue,
@@ -33,9 +34,14 @@ const OnBoardingUIWithLottieAnimation = () => {
     }
   };
   const handler = useAnimatedScrollHandler({
-    onScroll: e => (animatedDot.value = withTiming(e.contentOffset.x / WIDTH)),
-    onMomentumEnd: e =>
-      (animatedDot.value = withTiming(Math.round(e.contentOffset.x / WIDTH))),
+    onScroll: e =>
+      (animatedDot.value = withTiming(e.contentOffset.x / WIDTH, {
+        reduceMotion: ReduceMotion.Never,
+      })),
+    onEndDrag: e =>
+      (animatedDot.value = withTiming(Math.round(e.contentOffset.x / WIDTH), {
+        reduceMotion: ReduceMotion.System,
+      })),
   });
   useDerivedValue(() => console.log(animatedDot.value));
   return (

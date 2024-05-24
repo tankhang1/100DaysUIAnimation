@@ -1,5 +1,5 @@
+import {useId} from '@/hooks';
 import {THomeTab} from '@/utils/types/THomeScreen';
-import {useId} from 'react';
 
 export const HomeMocks = {
   Tabs: [
@@ -8,6 +8,12 @@ export const HomeMocks = {
       name: 'Onboarding UI with Lottie Animation',
       backgroundColor: '#fd9300',
       navigateTo: 'OnBoardingUIWithLottieAnimation',
+    },
+    {
+      id: useId(),
+      name: 'Stacked Flatlist',
+      backgroundColor: '#fd9300',
+      navigateTo: 'StackedFlatlist',
     },
   ] as THomeTab[],
 };

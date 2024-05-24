@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {TAppNavigation} from '../utils/types';
 import HomeScreen from '@/screens/HomeScreen';
 import OnBoardingUIWithLottieAnimation from '@/screens/OnBoardingUIWithLottieAnimation';
+import StackedFlatlist from '@/screens/StackedFlatlist';
 const Stack = createNativeStackNavigator<TAppNavigation>();
 const AppNavigation = () => {
   return (
@@ -15,6 +16,7 @@ const AppNavigation = () => {
           name="OnBoardingUIWithLottieAnimation"
           component={OnBoardingUIWithLottieAnimation}
         />
+        <Stack.Screen name="StackedFlatlist" component={StackedFlatlist} />
       </Stack.Navigator>
     </NavigationContainer>
   );
